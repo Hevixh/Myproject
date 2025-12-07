@@ -40,7 +40,7 @@ public class HelloController {
     }
 
     @FXML
-    private void loginAdmin() {
+    public void loginAdmin() {
         try {
             String user = this.username.getText().trim();
             String pass = this.password.getText().trim();
