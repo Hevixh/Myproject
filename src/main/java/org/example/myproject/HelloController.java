@@ -65,6 +65,7 @@ public class HelloController {
                 Parent root = (Parent)loader.load();
                 Stage stage = new Stage();
                 stage.setScene(new Scene(root));
+                stage.setResizable(false);
                 stage.setTitle("Система обліку студентів");
                 stage.show();
             } else {
