@@ -35,7 +35,7 @@ public class HelloController {
     private static final String EXPECTED_PASS = "1234";
 
     @FXML
-    private void setClose() {
+    public void setClose() {
         Platform.exit();
     }
 
