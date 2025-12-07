@@ -218,12 +218,12 @@ public class dashboardController {
     private Label username;
 
     @FXML
-    private void setClose() {
+    public void setClose() {
         Platform.exit();
     }
 
     @FXML
-    private void setMinimize() {
+    public void setMinimize() {
         Stage stage = (Stage)this.main_form.getScene().getWindow();
         stage.setIconified(true);
     }
