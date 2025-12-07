@@ -229,7 +229,7 @@ public class dashboardController {
     }
 
     @FXML
-    private void logout() {
+    public void logout() {
         try {
             Alert alert = new Alert(AlertType.CONFIRMATION);
             alert.setTitle("Підтвердження");
