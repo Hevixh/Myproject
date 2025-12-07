@@ -4,6 +4,7 @@ import java.util.Optional;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.AreaChart;
@@ -21,12 +22,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import org.kordamp.ikonli.javafx.FontIcon;
 
 public class dashboardController {
     @FXML
     private Button addStudent_btn;
+
+    @FXML
+    private AnchorPane addStudent_form;
 
     @FXML
     private Button addStudents_addBtn;
@@ -125,15 +129,13 @@ public class dashboardController {
     private Button availableCourses_btn;
 
     @FXML
-    private AnchorPane aviableCourse_form;
+    private AnchorPane availableCourses_form;
 
     @FXML
     private Button close;
 
     @FXML
-    private FontIcon grades_btn;
 
-    @FXML
     private Button home_btn;
 
     @FXML
@@ -170,16 +172,19 @@ public class dashboardController {
     private Button studentGrade_addBtn;
 
     @FXML
+    private Button studentGrade_btn;
+
+    @FXML
     private Button studentGrade_changeBtn;
 
     @FXML
     private Button studentGrade_clearBtn;
 
     @FXML
-    private TableColumn<?, ?> studentGrade_col_grade;
+    private TableColumn<?, ?> studentGrade_col_studentGroup;
 
     @FXML
-    private TableColumn<?, ?> studentGrade_col_studentGroup;
+    private TableColumn<?, ?> studentGrade_col_studentGroup1;
 
     @FXML
     private TableColumn<?, ?> studentGrade_col_studentName;
@@ -200,6 +205,9 @@ public class dashboardController {
     private ComboBox<?> studentGrade_grade;
 
     @FXML
+    private TextField studentGrade_search;
+
+    @FXML
     private TextField studentGrade_studentGroup;
 
     @FXML
@@ -218,18 +226,18 @@ public class dashboardController {
     private Label username;
 
     @FXML
-    private void setClose() {
+    public void setClose() {
         Platform.exit();
     }
 
     @FXML
-    private void setMinimize() {
+    public void setMinimize() {
         Stage stage = (Stage)this.main_form.getScene().getWindow();
         stage.setIconified(true);
     }
 
     @FXML
-    private void logout() {
+    public void logout() {
         try {
             Alert alert = new Alert(AlertType.CONFIRMATION);
             alert.setTitle("Підтвердження");
@@ -255,5 +263,53 @@ public class dashboardController {
             error.showAndWait();
         }
 
+    }
+
+    @FXML
+    public void switchForm(ActionEvent event) {
+        if (event.getSource() == home_btn) {
+            home_form.setVisible(true);
+            addStudent_form.setVisible(false);
+            availableCourses_form.setVisible(false);
+            studentGrade_form.setVisible(false);
+
+            home_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #3f82ae, #26bf7d);");
+            addStudent_btn.setStyle("-fx-background-color:transparent");
+            availableCourses_btn.setStyle("-fx-background-color:transparent");
+            studentGrade_btn.setStyle("-fx-background-color:transparent");
+
+        } else if (event.getSource() == addStudent_btn) {
+            home_form.setVisible(false);
+            addStudent_form.setVisible(true);
+            availableCourses_form.setVisible(false);
+            studentGrade_form.setVisible(false);
+
+            addStudent_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #3f82ae, #26bf7d);");
+            home_btn.setStyle("-fx-background-color:transparent");
+            availableCourses_btn.setStyle("-fx-background-color:transparent");
+            studentGrade_btn.setStyle("-fx-background-color:transparent");
+
+        } else if (event.getSource() == availableCourses_btn) {
+            home_form.setVisible(false);
+            addStudent_form.setVisible(false);
+            availableCourses_form.setVisible(true);
+            studentGrade_form.setVisible(false);
+
+            availableCourses_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #3f82ae, #26bf7d);");
+            addStudent_btn.setStyle("-fx-background-color:transparent");
+            home_btn.setStyle("-fx-background-color:transparent");
+            studentGrade_btn.setStyle("-fx-background-color:transparent");
+
+        } else if (event.getSource() == studentGrade_btn) {
+            home_form.setVisible(false);
+            addStudent_form.setVisible(false);
+            availableCourses_form.setVisible(false);
+            studentGrade_form.setVisible(true);
+
+            studentGrade_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #3f82ae, #26bf7d);");
+            addStudent_btn.setStyle("-fx-background-color:transparent");
+            availableCourses_btn.setStyle("-fx-background-color:transparent");
+            home_btn.setStyle("-fx-background-color:transparent");
+        }
     }
 }

@@ -13,27 +13,27 @@
     <children>
         <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0">
             <children>
-                <AnchorPane prefHeight="409.0" prefWidth="298.0">
+                <AnchorPane prefHeight="409.0" prefWidth="298.0" styleClass="left-form" stylesheets="@style/loginDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
-                        <Label layoutX="39.0" layoutY="225.0" text="Система обліку студентів">
+                        <Label layoutX="33.0" layoutY="224.0" text="Система обліку студентів" textFill="WHITE">
                             <font>
                                 <Font name="Tahoma" size="20.0" />
                             </font>
                         </Label>
-                        <FontIcon iconLiteral="fa-graduation-cap" iconSize="120" layoutX="72.0" layoutY="199.0" text="" />
+                        <FontIcon iconColor="WHITE" iconLiteral="fa-graduation-cap" iconSize="120" layoutX="72.0" layoutY="199.0" text="" />
                     </children>
                 </AnchorPane>
-                <AnchorPane layoutX="298.0" prefHeight="410.0" prefWidth="291.0" AnchorPane.rightAnchor="-5.0">
+                <AnchorPane layoutX="298.0" prefHeight="410.0" prefWidth="298.0" styleClass="right-form" stylesheets="@style/loginDesign.css" AnchorPane.rightAnchor="-5.0">
                     <children>
                         <Label layoutX="75.0" layoutY="130.0" text="З поверненням!">
                             <font>
                                 <Font name="Tahoma Bold" size="18.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="username" layoutX="39.0" layoutY="175.0" prefHeight="30.0" prefWidth="220.0" promptText="Username" />
-                        <PasswordField fx:id="password" layoutX="39.0" layoutY="218.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" />
-                        <Button fx:id="loginBtn" layoutX="39.0" layoutY="280.0" mnemonicParsing="false" onAction="#loginAdmin" prefHeight="40.0" prefWidth="220.0" text="Login" />
-                        <Button layoutX="236.0" layoutY="7.0" mnemonicParsing="false" onAction="#setClose" prefHeight="12.0" prefWidth="25.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="2.0">
+                        <TextField fx:id="username" layoutX="39.0" layoutY="175.0" prefHeight="30.0" prefWidth="220.0" promptText="Username" styleClass="textfield" stylesheets="@style/loginDesign.css" />
+                        <PasswordField fx:id="password" layoutX="39.0" layoutY="218.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" styleClass="textfield" stylesheets="@style/loginDesign.css" />
+                        <Button fx:id="loginBtn" layoutX="39.0" layoutY="280.0" mnemonicParsing="false" onAction="#loginAdmin" prefHeight="40.0" prefWidth="220.0" styleClass="login-btn" stylesheets="@style/loginDesign.css" text="Login" />
+                        <Button layoutX="236.0" layoutY="7.0" mnemonicParsing="false" onAction="#setClose" prefHeight="12.0" prefWidth="25.0" styleClass="close" stylesheets="@style/loginDesign.css" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="2.0">
                             <graphic>
                                 <FontIcon fx:id="close" iconLiteral="fa-close" />
                             </graphic></Button>

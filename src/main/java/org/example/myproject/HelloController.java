@@ -31,16 +31,13 @@ public class HelloController {
     @FXML
     private TextField username;
 
-    private static final String EXPECTED_USER = "admin";
-    private static final String EXPECTED_PASS = "1234";
-
     @FXML
-    private void setClose() {
+    public  void setClose() {
         Platform.exit();
     }
 
     @FXML
-    private void loginAdmin() {
+    public void loginAdmin() {
         try {
             String user = this.username.getText().trim();
             String pass = this.password.getText().trim();
