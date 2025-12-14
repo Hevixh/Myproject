@@ -12,6 +12,8 @@ import java.util.*;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -213,6 +215,7 @@ public class dashboardController implements Initializable {
             addStudentsGroupList();
             addStudentsCourseList();
             addStudentsGenderList();
+            addStudentsSearch();
 
         } else if (event.getSource() == studentsGroup_btn) {
             home_form.setVisible(false);
@@ -482,6 +485,43 @@ public class dashboardController implements Initializable {
         }
     }
 
+    private boolean searchInitialized = false;
+
+    @FXML
+    public void addStudentsSearch() {
+        if (searchInitialized) return;
+        searchInitialized = true;
+
+        if (addStudentsListD == null) {
+            addStudentsListD = addStudentsListData();
+        }
+
+        FilteredList<studentData> filter = new FilteredList<>(addStudentsListD, p -> true);
+
+        addStudents_search.textProperty().addListener((observable, oldValue, newValue) -> {
+            final String searchKey = newValue == null ? "" : newValue.trim().toLowerCase();
+
+            filter.setPredicate(sd -> {
+                if (sd == null) return false;
+                if (searchKey.isEmpty()) return true;
+
+                if (String.valueOf(sd.getZk()).toLowerCase().contains(searchKey)) return true;
+                if (sd.getGroup() != null && sd.getGroup().toLowerCase().contains(searchKey)) return true;
+                if (String.valueOf(sd.getCourse()).toLowerCase().contains(searchKey)) return true;
+                if (sd.getName() != null && sd.getName().toLowerCase().contains(searchKey)) return true;
+                if (sd.getSurname() != null && sd.getSurname().toLowerCase().contains(searchKey)) return true;
+                if (sd.getGender() != null && sd.getGender().toLowerCase().contains(searchKey)) return true;
+                if (sd.getBirth() != null && sd.getBirth().toString().toLowerCase().contains(searchKey)) return true;
+
+                return false;
+            });
+        });
+
+        SortedList<studentData> sortList = new SortedList<>(filter);
+        sortList.comparatorProperty().bind(addStudents_tableView.comparatorProperty());
+        addStudents_tableView.setItems(sortList);
+    }
+
     private String[] courseList = {"1", "2", "3", "4"};
 
     @FXML
@@ -535,6 +575,8 @@ public class dashboardController implements Initializable {
         ObservableList ObList = FXCollections.observableArrayList(genderL);
         addStudents_gender.setItems(ObList);
     }
+
+    /* ----------------------------- Student list ----------------------------- */
 
     @FXML
     public ObservableList<studentData> addStudentsListData() {
@@ -601,6 +643,8 @@ public class dashboardController implements Initializable {
 
         getData.path = studentD.getImage();
     }
+
+    /* ----------------------------- Groups ----------------------------- */
 
     @FXML
     public void studentsGroupAdd() {
