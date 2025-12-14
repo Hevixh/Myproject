@@ -521,8 +521,6 @@ public class dashboardController implements Initializable {
         addStudents_gender.setItems(ObList);
     }
 
-    /* ----------------------------- Student list ----------------------------- */
-
     @FXML
     public ObservableList<studentData> addStudentsListData() {
         ObservableList<studentData> listStudents = FXCollections.observableArrayList();
@@ -588,8 +586,6 @@ public class dashboardController implements Initializable {
 
         getData.path = studentD.getImage();
     }
-
-    /* ----------------------------- Groups ----------------------------- */
 
     @FXML
     public void studentsGroupAdd() {
