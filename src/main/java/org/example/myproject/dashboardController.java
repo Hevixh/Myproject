@@ -1,19 +1,18 @@
 package org.example.myproject;
 
-import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDate;
-import java.util.*;
+import java.util.Date;
+import java.util.Optional;
+import java.util.ResourceBundle;
 
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,7 +36,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class dashboardController implements Initializable {
@@ -212,10 +210,6 @@ public class dashboardController implements Initializable {
             studentsGroup_btn.setStyle("-fx-background-color:transparent");
 
             addStudentsShowListData();
-            addStudentsGroupList();
-            addStudentsCourseList();
-            addStudentsGenderList();
-            addStudentsSearch();
 
         } else if (event.getSource() == studentsGroup_btn) {
             home_form.setVisible(false);
@@ -473,112 +467,6 @@ public class dashboardController implements Initializable {
     }
 
     @FXML
-    public void addStudentsInsertImage() {
-        FileChooser open = new FileChooser();
-        open.setTitle("Відкрити зображення");
-        open.getExtensionFilters().add(new FileChooser.ExtensionFilter("Файли зображень", "*.jpg", "*.jpeg", "*.png"));
-        File file = open.showOpenDialog(main_form.getScene().getWindow());
-        if (file != null) {
-            image = new Image(file.toURI().toString(), 117, 158, false, true);
-            addStudents_imageView.setImage(image);
-            getData.path = file.getAbsolutePath();
-        }
-    }
-
-    private boolean searchInitialized = false;
-
-    @FXML
-    public void addStudentsSearch() {
-        if (searchInitialized) return;
-        searchInitialized = true;
-
-        if (addStudentsListD == null) {
-            addStudentsListD = addStudentsListData();
-        }
-
-        FilteredList<studentData> filter = new FilteredList<>(addStudentsListD, p -> true);
-
-        addStudents_search.textProperty().addListener((observable, oldValue, newValue) -> {
-            final String searchKey = newValue == null ? "" : newValue.trim().toLowerCase();
-
-            filter.setPredicate(sd -> {
-                if (sd == null) return false;
-                if (searchKey.isEmpty()) return true;
-
-                if (String.valueOf(sd.getZk()).toLowerCase().contains(searchKey)) return true;
-                if (sd.getGroup() != null && sd.getGroup().toLowerCase().contains(searchKey)) return true;
-                if (String.valueOf(sd.getCourse()).toLowerCase().contains(searchKey)) return true;
-                if (sd.getName() != null && sd.getName().toLowerCase().contains(searchKey)) return true;
-                if (sd.getSurname() != null && sd.getSurname().toLowerCase().contains(searchKey)) return true;
-                if (sd.getGender() != null && sd.getGender().toLowerCase().contains(searchKey)) return true;
-                if (sd.getBirth() != null && sd.getBirth().toString().toLowerCase().contains(searchKey)) return true;
-
-                return false;
-            });
-        });
-
-        SortedList<studentData> sortList = new SortedList<>(filter);
-        sortList.comparatorProperty().bind(addStudents_tableView.comparatorProperty());
-        addStudents_tableView.setItems(sortList);
-    }
-
-    private String[] courseList = {"1", "2", "3", "4"};
-
-    @FXML
-    public void addStudentsCourseList() {
-
-        List<String> courseL = new ArrayList<>();
-
-        for (String data : courseList) {
-            courseL.add(data);
-        }
-
-        ObservableList ObList = FXCollections.observableArrayList(courseL);
-        addStudents_course.setItems(ObList);
-
-    }
-
-    @FXML
-    public void addStudentsGroupList() {
-
-        String listGroup = "SELECT * FROM \"group\"";
-
-        connect = database.connectDb();
-
-        try {
-
-            ObservableList listG = FXCollections.observableArrayList();
-
-            prepare = connect.prepareStatement(listGroup);
-            result = prepare.executeQuery();
-
-            while (result.next()) {
-                listG.add(result.getString("group"));
-            }
-            addStudents_group.setItems(listG);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    private String[] genderList = {"Чоловік", "Жінка"};
-
-    public void addStudentsGenderList() {
-        List<String> genderL = new ArrayList<>();
-
-        for (String data : genderList) {
-            genderL.add(data);
-        }
-
-        ObservableList ObList = FXCollections.observableArrayList(genderL);
-        addStudents_gender.setItems(ObList);
-    }
-
-    /* ----------------------------- Student list ----------------------------- */
-
-    @FXML
     public ObservableList<studentData> addStudentsListData() {
         ObservableList<studentData> listStudents = FXCollections.observableArrayList();
         String sql = "SELECT * FROM student";
@@ -643,8 +531,6 @@ public class dashboardController implements Initializable {
 
         getData.path = studentD.getImage();
     }
-
-    /* ----------------------------- Groups ----------------------------- */
 
     @FXML
     public void studentsGroupAdd() {
@@ -842,9 +728,6 @@ public class dashboardController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         addStudentsShowListData();
-        addStudentsGroupList();
-        addStudentsCourseList();
-        addStudentsGenderList();
         studentsGroupShowListData();
 
         Platform.runLater(() -> {
