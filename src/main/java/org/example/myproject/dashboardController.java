@@ -6,9 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -210,6 +208,9 @@ public class dashboardController implements Initializable {
             studentsGroup_btn.setStyle("-fx-background-color:transparent");
 
             addStudentsShowListData();
+            addStudentsGroupList();
+            addStudentsCourseList();
+            addStudentsGenderList();
 
         } else if (event.getSource() == studentsGroup_btn) {
             home_form.setVisible(false);
@@ -466,6 +467,62 @@ public class dashboardController implements Initializable {
         getData.path = "";
     }
 
+    private String[] courseList = {"1", "2", "3", "4"};
+
+    @FXML
+    public void addStudentsCourseList() {
+
+        List<String> courseL = new ArrayList<>();
+
+        for (String data : courseList) {
+            courseL.add(data);
+        }
+
+        ObservableList ObList = FXCollections.observableArrayList(courseL);
+        addStudents_course.setItems(ObList);
+
+    }
+
+    @FXML
+    public void addStudentsGroupList() {
+
+        String listGroup = "SELECT * FROM \"group\"";
+
+        connect = database.connectDb();
+
+        try {
+
+            ObservableList listG = FXCollections.observableArrayList();
+
+            prepare = connect.prepareStatement(listGroup);
+            result = prepare.executeQuery();
+
+            while (result.next()) {
+                listG.add(result.getString("group"));
+            }
+            addStudents_group.setItems(listG);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private String[] genderList = {"Чоловік", "Жінка"};
+
+    public void addStudentsGenderList() {
+        List<String> genderL = new ArrayList<>();
+
+        for (String data : genderList) {
+            genderL.add(data);
+        }
+
+        ObservableList ObList = FXCollections.observableArrayList(genderL);
+        addStudents_gender.setItems(ObList);
+    }
+
+    /* ----------------------------- Student list ----------------------------- */
+
     @FXML
     public ObservableList<studentData> addStudentsListData() {
         ObservableList<studentData> listStudents = FXCollections.observableArrayList();
@@ -531,6 +588,8 @@ public class dashboardController implements Initializable {
 
         getData.path = studentD.getImage();
     }
+
+    /* ----------------------------- Groups ----------------------------- */
 
     @FXML
     public void studentsGroupAdd() {
@@ -728,6 +787,9 @@ public class dashboardController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         addStudentsShowListData();
+        addStudentsGroupList();
+        addStudentsCourseList();
+        addStudentsGenderList();
         studentsGroupShowListData();
 
         Platform.runLater(() -> {
@@ -738,4 +800,5 @@ public class dashboardController implements Initializable {
         });
     }
 }
+
 

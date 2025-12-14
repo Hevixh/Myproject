@@ -254,7 +254,7 @@
                                                         <Font name="Tahoma" size="14.0" />
                                                     </font>
                                                 </Label>
-                                                <ComboBox fx:id="addStudents_course" layoutX="98.0" layoutY="406.0" prefHeight="26.0" prefWidth="100.0" promptText="Виберіть" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="98.0" />
+                                                <ComboBox fx:id="addStudents_course" layoutX="98.0" layoutY="406.0" onAction="#addStudentsCourseList" prefHeight="26.0" prefWidth="100.0" promptText="Виберіть" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="98.0" />
                                                 <Label layoutX="54.0" layoutY="454.0" text="Ім'я:" AnchorPane.rightAnchor="795.0">
                                                     <font>
                                                         <Font name="Tahoma" size="14.0" />
@@ -272,7 +272,7 @@
                                                         <Font name="Tahoma" size="14.0" />
                                                     </font>
                                                 </Label>
-                                                <ComboBox fx:id="addStudents_gender" layoutX="457.0" layoutY="362.0" prefHeight="26.0" prefWidth="121.0" promptText="Виберіть" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="457.0" />
+                                                <ComboBox fx:id="addStudents_gender" layoutX="457.0" layoutY="362.0" onAction="#addStudentsGenderList" prefHeight="26.0" prefWidth="121.0" promptText="Виберіть" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="457.0" />
                                                 <Label layoutX="332.0" layoutY="411.0" text="Дата народження:" AnchorPane.rightAnchor="429.5">
                                                     <font>
                                                         <Font name="Tahoma" size="14.0" />
@@ -298,7 +298,7 @@
                                           <Font name="Tahoma" size="14.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox fx:id="addStudents_group" layoutX="98.0" layoutY="361.0" prefHeight="27.0" prefWidth="101.0" promptText="Виберіть" styleClass="textfield" stylesheets="@style/dashboardDesign.css" />
+                                    <ComboBox fx:id="addStudents_group" layoutX="98.0" layoutY="361.0" onAction="#addStudentsGroupList" prefHeight="27.0" prefWidth="101.0" promptText="Виберіть" styleClass="textfield" stylesheets="@style/dashboardDesign.css" />
                                     <TextField fx:id="addStudents_zk" layoutX="98.0" layoutY="318.0" prefHeight="26.0" prefWidth="144.0" styleClass="textfield" stylesheets="@style/dashboardDesign.css" />
                                             </children>
                                  <styleClass>
