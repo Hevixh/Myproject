@@ -68,24 +68,19 @@
                                             </font>
                                         </Label>
                                         <Line endX="90.0" layoutX="100.0" layoutY="182.0" startX="-90.0" stroke="WHITE" AnchorPane.leftAnchor="9.5" AnchorPane.rightAnchor="10.5" />
-                                        <Button fx:id="home_btn" layoutX="9.0" layoutY="217.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@style/dashboardDesign.css" text="Головна" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0">
+                                        <Button fx:id="home_btn" layoutX="13.0" layoutY="217.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@style/dashboardDesign.css" text="Головна" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0">
                                             <graphic>
                                                 <FontIcon iconColor="WHITE" iconLiteral="fa-home" iconSize="20" />
                                             </graphic>
                                         </Button>
-                                        <Button fx:id="addStudent_btn" layoutX="9.0" layoutY="260.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@style/dashboardDesign.css" text="Додати студента" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0">
+                                        <Button fx:id="addStudent_btn" layoutX="13.0" layoutY="260.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@style/dashboardDesign.css" text="Додати студента" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0">
                                             <graphic>
                                                 <FontIcon iconColor="WHITE" iconLiteral="fa-plus-circle" iconSize="20" />
                                             </graphic>
                                         </Button>
-                                        <Button fx:id="availableCourses_btn" layoutX="9.0" layoutY="303.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@style/dashboardDesign.css" text="Доступні курси" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0">
+                                        <Button fx:id="studentsGroup_btn" layoutX="13.0" layoutY="303.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@style/dashboardDesign.css" text="Групи студентів" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0">
                                             <graphic>
                                                 <FontIcon iconColor="WHITE" iconLiteral="fa-book" iconSize="20" />
-                                            </graphic>
-                                        </Button>
-                                        <Button fx:id="studentGrade_btn" layoutX="9.0" layoutY="346.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@style/dashboardDesign.css" text="Оцінки" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0">
-                                            <graphic>
-                                                <FontIcon iconColor="WHITE" iconLiteral="fa-clipboard" iconSize="20" />
                                             </graphic>
                                         </Button>
                                         <Button fx:id="logout" layoutX="11.0" layoutY="506.0" mnemonicParsing="false" onAction="#logout" stylesheets="@style/dashboardDesign.css">
@@ -111,7 +106,7 @@
                     <center>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                             <children>
-                                <AnchorPane fx:id="home_form" layoutX="67.0" layoutY="147.0" prefHeight="555.0" prefWidth="899.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <AnchorPane fx:id="home_form" layoutX="67.0" layoutY="147.0" prefHeight="555.0" prefWidth="899.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <children>
                                         <AnchorPane layoutX="11.0" layoutY="11.0" prefHeight="535.0" prefWidth="879.0" stylesheets="@style/dashboardDesign.css" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="9.0">
                                             <children>
@@ -224,21 +219,22 @@
                                         </AnchorPane>
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane fx:id="addStudent_form" layoutX="59.0" layoutY="98.0" prefHeight="555.0" prefWidth="899.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <AnchorPane fx:id="addStudent_form" layoutX="59.0" layoutY="98.0" prefHeight="555.0" prefWidth="899.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <children>
                                         <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="529.0" prefWidth="873.0" stylesheets="@style/dashboardDesign.css" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="9.0">
                                             <children>
                                                 <AnchorPane prefHeight="288.0" prefWidth="881.0" stylesheets="@style/dashboardDesign.css">
                                                     <children>
-                                                        <TextField fx:id="addStudents_search" layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="274.0" promptText="Пошук" styleClass="search" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="12.0" />
-                                                        <TableView fx:id="addStudents_tableView" layoutX="12.0" layoutY="56.0" prefHeight="218.0" prefWidth="843.0" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0">
+                                                        <TextField fx:id="addStudents_search" layoutX="14.0" layoutY="14.0" onKeyTyped="#addStudentsSearch" prefHeight="30.0" prefWidth="274.0" promptText="Пошук" styleClass="search" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="12.0" />
+                                                        <TableView fx:id="addStudents_tableView" layoutX="12.0" layoutY="56.0" onMouseClicked="#addStudentsSelect" prefHeight="218.0" prefWidth="843.0" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0">
                                                             <columns>
-                                                                <TableColumn fx:id="addStudents_col_group" prefWidth="109.0" text="Група" />
-                                                                <TableColumn fx:id="addStudents_col_course" minWidth="0.0" prefWidth="98.0" text="Курс" />
-                                                                <TableColumn fx:id="addStudents_col_name" minWidth="0.0" prefWidth="136.0" text="Ім'я" />
-                                                                <TableColumn fx:id="addStudents_col_surname" minWidth="0.0" prefWidth="208.0" text="Прізвище" />
-                                                                <TableColumn fx:id="addStudents_col_gender" minWidth="0.0" prefWidth="122.0" text="Стать" />
-                                                                <TableColumn fx:id="addStudents_col_birth" minWidth="0.0" prefWidth="179.0" text="Дата народження" />
+                                                <TableColumn fx:id="addStudents_col_zk" minWidth="0.0" prefWidth="110.0" text="Номер з/к" />
+                                                                <TableColumn fx:id="addStudents_col_group" prefWidth="72.0" text="Група" />
+                                                                <TableColumn fx:id="addStudents_col_course" minWidth="0.0" prefWidth="50.0" text="Курс" />
+                                                                <TableColumn fx:id="addStudents_col_name" minWidth="0.0" prefWidth="113.0" text="Ім'я" />
+                                                                <TableColumn fx:id="addStudents_col_surname" minWidth="0.0" prefWidth="205.0" text="Прізвище" />
+                                                                <TableColumn fx:id="addStudents_col_gender" minWidth="0.0" prefWidth="113.0" text="Стать" />
+                                                                <TableColumn fx:id="addStudents_col_birth" minWidth="0.0" prefWidth="191.0" text="Дата народження" />
                                                             </columns>
                                                         </TableView>
                                                         <FontIcon fill="#727272" iconLiteral="fa-search" iconSize="20" layoutX="20.0" layoutY="36.0" />
@@ -248,45 +244,44 @@
                                           <String fx:value="shadow" />
                                        </styleClass>
                                                 </AnchorPane>
-                                                <Label layoutX="52.0" layoutY="313.0" text="Група:" AnchorPane.rightAnchor="779.0">
+                                                <Label layoutX="47.0" layoutY="366.0" text="Група:" AnchorPane.rightAnchor="792.0">
                                                     <font>
                                                         <Font name="Tahoma" size="14.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField fx:id="addStudents_group" layoutX="111.0" layoutY="309.0" prefHeight="26.0" prefWidth="144.0" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.bottomAnchor="194.0" AnchorPane.leftAnchor="111.0" />
-                                                <Label layoutX="60.0" layoutY="365.0" text="Курс:" AnchorPane.rightAnchor="779.0">
+                                                <Label layoutX="51.0" layoutY="411.0" text="Курс:" AnchorPane.rightAnchor="795.0">
                                                     <font>
                                                         <Font name="Tahoma" size="14.0" />
                                                     </font>
                                                 </Label>
-                                                <ComboBox fx:id="addStudents_course" layoutX="111.0" layoutY="361.0" prefHeight="26.0" prefWidth="100.0" promptText="Виберіть" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="111.0" />
-                                                <Label layoutX="63.0" layoutY="419.0" text="Ім'я:" AnchorPane.rightAnchor="779.0">
+                                                <ComboBox fx:id="addStudents_course" layoutX="98.0" layoutY="406.0" prefHeight="26.0" prefWidth="100.0" promptText="Виберіть" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="98.0" />
+                                                <Label layoutX="54.0" layoutY="454.0" text="Ім'я:" AnchorPane.rightAnchor="795.0">
                                                     <font>
                                                         <Font name="Tahoma" size="14.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField fx:id="addStudents_name" layoutX="111.0" layoutY="415.0" prefHeight="26.0" prefWidth="144.0" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="111.0" />
-                                                <Label layoutX="379.0" layoutY="313.0" text="Прізвище:" AnchorPane.rightAnchor="428.5">
+                                                <TextField fx:id="addStudents_name" layoutX="98.0" layoutY="450.0" prefHeight="26.0" prefWidth="144.0" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="98.0" />
+                                                <Label layoutX="379.0" layoutY="322.0" text="Прізвище:" AnchorPane.rightAnchor="436.5">
                                                     <font>
                                                         <Font name="Tahoma" size="14.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField fx:id="addStudents_surname" layoutX="464.0" layoutY="309.0" prefHeight="26.0" prefWidth="158.0" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="464.0" />
-                                                <Label layoutX="404.0" layoutY="365.0" prefWidth="41.0" text="Стать:" AnchorPane.rightAnchor="428.5">
+                                                <TextField fx:id="addStudents_surname" layoutX="458.0" layoutY="318.0" prefHeight="26.0" prefWidth="158.0" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="458.0" />
+                                                <Label layoutX="404.0" layoutY="365.0" prefWidth="41.0" text="Стать:" AnchorPane.rightAnchor="436.0">
                                                     <font>
                                                         <Font name="Tahoma" size="14.0" />
                                                     </font>
                                                 </Label>
-                                                <ComboBox fx:id="addStudents_gender" layoutX="463.0" layoutY="361.0" prefHeight="26.0" prefWidth="121.0" promptText="Виберіть" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="464.0" />
-                                                <Label layoutX="325.0" layoutY="419.0" text="Дата народження:" AnchorPane.rightAnchor="428.5">
+                                                <ComboBox fx:id="addStudents_gender" layoutX="457.0" layoutY="362.0" prefHeight="26.0" prefWidth="121.0" promptText="Виберіть" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="457.0" />
+                                                <Label layoutX="332.0" layoutY="411.0" text="Дата народження:" AnchorPane.rightAnchor="429.5">
                                                     <font>
                                                         <Font name="Tahoma" size="14.0" />
                                                     </font>
                                                 </Label>
-                                                <DatePicker fx:id="addStudents_birth" layoutX="464.0" layoutY="415.0" prefWidth="158.0" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="464.0" />
+                                                <DatePicker fx:id="addStudents_birth" layoutX="458.0" layoutY="406.0" prefWidth="158.0" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="458.0" />
                                                 <AnchorPane layoutX="701.0" layoutY="302.0" prefHeight="155.0" prefWidth="117.0" stylesheets="@style/dashboardDesign.css">
                                                     <children>
-                                                        <ImageView fx:id="addStudents_imageView" fitHeight="153.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true" />
+                                                        <ImageView fx:id="addStudents_imageView" fitHeight="158.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true" />
                                                         <Button fx:id="addStudents_insertBtn" layoutY="120.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="117.0" styleClass="insert-btn" stylesheets="@style/dashboardDesign.css" text="Змінити фото" />
                                                     </children>
                                        <styleClass>
@@ -294,10 +289,17 @@
                                           <String fx:value="shadow" />
                                        </styleClass>
                                                 </AnchorPane>
-                                                <Button fx:id="addStudents_addBtn" layoutX="759.0" layoutY="476.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="93.0" styleClass="add-btn" stylesheets="@style/dashboardDesign.css" text="Додати" />
-                                                <Button fx:id="addStudents_changeBtn" layoutX="653.0" layoutY="476.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="93.0" styleClass="update-btn" stylesheets="@style/dashboardDesign.css" text="Змінити" />
-                                                <Button fx:id="addStudents_deleteBtn" layoutX="531.0" layoutY="476.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="93.0" styleClass="delete-btn" stylesheets="@style/dashboardDesign.css" text="Видалити" />
-                                                <Button fx:id="addStudents_clearBtn" layoutX="424.0" layoutY="476.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="93.0" styleClass="clear-btn" stylesheets="@style/dashboardDesign.css" text="Очистити" />
+                                                <Button fx:id="addStudents_addBtn" layoutX="759.0" layoutY="476.0" mnemonicParsing="false" onAction="#addStudentsAdd" prefHeight="39.0" prefWidth="93.0" styleClass="add-btn" stylesheets="@style/dashboardDesign.css" text="Додати" />
+                                                <Button fx:id="addStudents_changeBtn" layoutX="653.0" layoutY="476.0" mnemonicParsing="false" onAction="#addStudentsUpdate" prefHeight="39.0" prefWidth="93.0" styleClass="update-btn" stylesheets="@style/dashboardDesign.css" text="Змінити" />
+                                                <Button fx:id="addStudents_deleteBtn" layoutX="531.0" layoutY="476.0" mnemonicParsing="false" onAction="#addStudentsDelete" prefHeight="39.0" prefWidth="93.0" styleClass="delete-btn" stylesheets="@style/dashboardDesign.css" text="Видалити" />
+                                                <Button fx:id="addStudents_clearBtn" layoutX="424.0" layoutY="476.0" mnemonicParsing="false" onAction="#addStudentsClear" prefHeight="39.0" prefWidth="93.0" styleClass="clear-btn" stylesheets="@style/dashboardDesign.css" text="Очистити" />
+                                    <Label layoutX="18.0" layoutY="322.0" text="Номер з/к:">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="addStudents_group" layoutX="98.0" layoutY="361.0" prefHeight="27.0" prefWidth="101.0" promptText="Виберіть" styleClass="textfield" stylesheets="@style/dashboardDesign.css" />
+                                    <TextField fx:id="addStudents_zk" layoutX="98.0" layoutY="318.0" prefHeight="26.0" prefWidth="144.0" styleClass="textfield" stylesheets="@style/dashboardDesign.css" />
                                             </children>
                                  <styleClass>
                                     <String fx:value="white-bg" />
@@ -306,11 +308,11 @@
                                         </AnchorPane>
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane fx:id="availableCourses_form" layoutX="14.0" layoutY="78.0" prefHeight="555.0" prefWidth="899.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <AnchorPane fx:id="studentsGroup_form" layoutX="14.0" layoutY="78.0" prefHeight="555.0" prefWidth="899.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <children>
                                         <AnchorPane layoutX="14.0" layoutY="21.0" prefHeight="537.0" prefWidth="266.0" stylesheets="@style/dashboardDesign.css" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="624.0" AnchorPane.topAnchor="12.0">
                                             <children>
-                                                <Label layoutX="92.0" layoutY="55.0" text="Факультет:" textAlignment="CENTER">
+                                                <Label layoutX="92.0" layoutY="205.0" text="Факультет:" textAlignment="CENTER">
                                                     <font>
                                                         <Font name="Tahoma" size="15.0" />
                                                     </font>
@@ -320,18 +322,18 @@
                                                         <Font name="Tahoma" size="15.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField fx:id="availableCourse_faculty" layoutX="13.0" layoutY="80.0" prefHeight="26.0" prefWidth="235.0" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
-                                                <TextField fx:id="availableCourse_program" layoutX="14.0" layoutY="155.0" prefHeight="26.0" prefWidth="235.0" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
-                                                <Label layoutX="111.0" layoutY="205.0" text="Група:" textAlignment="CENTER">
+                                                <TextField fx:id="studentsGroup_group" layoutX="13.0" layoutY="80.0" prefHeight="26.0" prefWidth="235.0" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                                                <TextField fx:id="studentsGroup_program" layoutX="14.0" layoutY="155.0" prefHeight="26.0" prefWidth="235.0" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                                                <Label layoutX="108.0" layoutY="55.0" text="Група:" textAlignment="CENTER">
                                                     <font>
                                                         <Font name="Tahoma" size="15.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField fx:id="availableCourse_group" layoutX="16.0" layoutY="230.0" prefHeight="26.0" prefWidth="235.0" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
-                                                <Button fx:id="availableCourse_addBtn" layoutX="29.0" layoutY="303.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="86.0" styleClass="add-btn" stylesheets="@style/dashboardDesign.css" text="Додати" AnchorPane.leftAnchor="29.0" />
-                                                <Button fx:id="availableCourse_changeBtn" layoutX="149.0" layoutY="303.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="86.0" styleClass="update-btn" stylesheets="@style/dashboardDesign.css" text="Змінити" AnchorPane.rightAnchor="29.0" />
-                                                <Button fx:id="availableCourse_deleteBtn" layoutX="149.0" layoutY="370.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="86.0" styleClass="delete-btn" stylesheets="@style/dashboardDesign.css" text="Видалити" AnchorPane.rightAnchor="29.0" />
-                                                <Button fx:id="availableCourse_clearBtn" layoutX="29.0" layoutY="370.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="86.0" styleClass="clear-btn" stylesheets="@style/dashboardDesign.css" text="Очистити" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="151.0" />
+                                                <TextField fx:id="studentsGroup_faculty" layoutX="16.0" layoutY="230.0" prefHeight="26.0" prefWidth="235.0" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                                                <Button fx:id="studentsGroup_addBtn" layoutX="29.0" layoutY="303.0" mnemonicParsing="false" onAction="#studentsGroupAdd" prefHeight="49.0" prefWidth="86.0" styleClass="add-btn" stylesheets="@style/dashboardDesign.css" text="Додати" AnchorPane.leftAnchor="29.0" />
+                                                <Button fx:id="studentsGroup_changeBtn" layoutX="149.0" layoutY="303.0" mnemonicParsing="false" onAction="#studentsGroupUpdate" prefHeight="49.0" prefWidth="86.0" styleClass="update-btn" stylesheets="@style/dashboardDesign.css" text="Змінити" AnchorPane.rightAnchor="29.0" />
+                                                <Button fx:id="studentsGroup_deleteBtn" layoutX="149.0" layoutY="370.0" mnemonicParsing="false" onAction="#studentsGroupDelete" prefHeight="49.0" prefWidth="86.0" styleClass="delete-btn" stylesheets="@style/dashboardDesign.css" text="Видалити" AnchorPane.rightAnchor="29.0" />
+                                                <Button fx:id="studentsGroup_clearBtn" layoutX="29.0" layoutY="370.0" mnemonicParsing="false" onAction="#studentsGroupClear" prefHeight="49.0" prefWidth="86.0" styleClass="clear-btn" stylesheets="@style/dashboardDesign.css" text="Очистити" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="151.0" />
                                             </children>
                                  <styleClass>
                                     <String fx:value="white-bg" />
@@ -340,78 +342,13 @@
                                         </AnchorPane>
                                         <AnchorPane layoutX="286.0" layoutY="21.0" prefHeight="537.0" prefWidth="599.0" stylesheets="@style/dashboardDesign.css" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="12.0">
                                             <children>
-                                                <TableView fx:id="availableCourse_tableView" layoutX="13.0" layoutY="14.0" prefHeight="489.0" prefWidth="574.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+                                                <TableView fx:id="studentsGroup_tableView" layoutX="13.0" layoutY="14.0" onMouseClicked="#studentsGroupSelect" prefHeight="489.0" prefWidth="574.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
                                                     <columns>
-                                                        <TableColumn fx:id="availableCourse_col_faculty" prefWidth="184.0" text="Факультет" />
-                                                        <TableColumn fx:id="availableCourse_col_program" prefWidth="300.0" text="Спеціальність" />
-                                                        <TableColumn fx:id="availableCourse_col_group" prefWidth="89.0" text="Група" />
+                                                        <TableColumn fx:id="studentsGroup_col_group" prefWidth="89.0" text="Група" />
+                                                        <TableColumn fx:id="studentsGroup_col_program" prefWidth="226.0" text="Спеціальність" />
+                                                        <TableColumn fx:id="studentsGroup_col_faculty" prefWidth="258.0" text="Факультет" />
                                                     </columns>
                                                 </TableView>
-                                            </children>
-                                 <styleClass>
-                                    <String fx:value="white-bg" />
-                                    <String fx:value="shadow" />
-                                 </styleClass>
-                                        </AnchorPane>
-                                    </children>
-                                </AnchorPane>
-                                <AnchorPane fx:id="studentGrade_form" layoutX="31.0" layoutY="25.0" prefHeight="555.0" prefWidth="899.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                    <children>
-                                        <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="529.0" prefWidth="241.0" stylesheets="@style/dashboardDesign.css" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="644.0" AnchorPane.topAnchor="12.0">
-                                            <children>
-                                                <TextField fx:id="studentGrade_studentName" layoutX="74.0" layoutY="41.0" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="74.0" />
-                                                <Label layoutX="41.0" layoutY="45.0" text="Ім'я:" AnchorPane.rightAnchor="170.5">
-                                                    <font>
-                                                        <Font name="Tahoma" size="14.0" />
-                                                    </font>
-                                                </Label>
-                                                <Label layoutX="8.0" layoutY="85.0" text="Прізвище:" AnchorPane.rightAnchor="170.5">
-                                                    <font>
-                                                        <Font name="Tahoma" size="14.0" />
-                                                    </font>
-                                                </Label>
-                                                <TextField fx:id="studentGrade_studentSurname" layoutX="74.0" layoutY="81.0" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="74.0" />
-                                                <Label layoutX="29.0" layoutY="128.0" text="Група:" AnchorPane.rightAnchor="170.5">
-                                                    <font>
-                                                        <Font name="Tahoma" size="14.0" />
-                                                    </font>
-                                                </Label>
-                                                <TextField fx:id="studentGrade_studentGroup" layoutX="74.0" layoutY="124.0" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="74.0" />
-                                                <Label layoutX="11.0" layoutY="171.0" text="Предмет:" AnchorPane.rightAnchor="170.5">
-                                                    <font>
-                                                        <Font name="Tahoma" size="14.0" />
-                                                    </font>
-                                                </Label>
-                                                <TextField fx:id="studentGrade_subject" layoutX="74.0" layoutY="167.0" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="74.0" />
-                                                <Label layoutX="16.0" layoutY="216.0" text="Оцінка:" AnchorPane.rightAnchor="170.5">
-                                                    <font>
-                                                        <Font name="Tahoma" size="14.0" />
-                                                    </font>
-                                                </Label>
-                                                <ComboBox fx:id="studentGrade_grade" layoutX="71.0" layoutY="212.0" prefHeight="27.0" prefWidth="110.0" promptText="Виберіть" styleClass="textfield" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="74.0" />
-                                                <Button fx:id="studentGrade_addBtn" layoutX="19.0" layoutY="265.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="86.0" styleClass="add-btn" stylesheets="@style/dashboardDesign.css" text="Додати" AnchorPane.leftAnchor="19.0" />
-                                                <Button fx:id="studentGrade_changeBtn" layoutX="135.0" layoutY="265.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="86.0" styleClass="update-btn" stylesheets="@style/dashboardDesign.css" text="Змінити" AnchorPane.rightAnchor="19.0" />
-                                                <Button fx:id="studentGrade_clearBtn" layoutX="19.0" layoutY="326.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="86.0" styleClass="clear-btn" stylesheets="@style/dashboardDesign.css" text="Очистити" AnchorPane.leftAnchor="19.0" />
-                                                <Button fx:id="studentGrade_deleteBtn" layoutX="135.0" layoutY="326.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="86.0" styleClass="delete-btn" stylesheets="@style/dashboardDesign.css" text="Видалити" AnchorPane.rightAnchor="19.0" />
-                                            </children>
-                                 <styleClass>
-                                    <String fx:value="white-bg" />
-                                    <String fx:value="shadow" />
-                                 </styleClass>
-                                        </AnchorPane>
-                                        <AnchorPane layoutX="256.0" layoutY="13.0" prefHeight="527.0" prefWidth="629.0" stylesheets="@style/dashboardDesign.css" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="267.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
-                                            <children>
-                                                <TableView fx:id="studentGrade_tableView" layoutX="11.0" layoutY="54.0" prefHeight="458.0" prefWidth="592.0" stylesheets="@style/dashboardDesign.css" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
-                                                    <columns>
-                                                        <TableColumn fx:id="studentGrade_col_studentName" prefWidth="90.0" text="Ім'я" />
-                                                        <TableColumn fx:id="studentGrade_col_studentSurname" prefWidth="149.0" text="Прізвище" />
-                                                        <TableColumn fx:id="studentGrade_col_studentGroup" prefWidth="60.0" text="Група" />
-                                                        <TableColumn fx:id="studentGrade_col_subject" prefWidth="222.0" text="Предмет" />
-                                          <TableColumn fx:id="studentGrade_col_studentGroup1" prefWidth="69.0" text="Оцінка" />
-                                                    </columns>
-                                                </TableView>
-                                                <TextField fx:id="studentGrade_search" layoutX="11.0" layoutY="14.0" prefHeight="30.0" prefWidth="239.0" promptText="Пошук" styleClass="search" stylesheets="@style/dashboardDesign.css" AnchorPane.leftAnchor="14.0" />
-                                                <FontIcon fill="#727272" iconLiteral="fa-search" iconSize="20" layoutX="20.0" layoutY="36.0" />
                                             </children>
                                  <styleClass>
                                     <String fx:value="white-bg" />

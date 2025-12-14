@@ -5,6 +5,9 @@ module org.example.myproject {
     requires org.kordamp.ikonli.core;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.ikonli.fontawesome;
+    requires java.sql;
+    requires org.postgresql.jdbc;
+    requires javafx.base;
 
     exports org.example.myproject;
 
