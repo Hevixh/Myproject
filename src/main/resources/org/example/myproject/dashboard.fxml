@@ -282,7 +282,7 @@
                                                 <AnchorPane layoutX="701.0" layoutY="302.0" prefHeight="155.0" prefWidth="117.0" stylesheets="@style/dashboardDesign.css">
                                                     <children>
                                                         <ImageView fx:id="addStudents_imageView" fitHeight="158.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true" />
-                                                        <Button fx:id="addStudents_insertBtn" layoutY="120.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="117.0" styleClass="insert-btn" stylesheets="@style/dashboardDesign.css" text="Змінити фото" />
+                                                        <Button fx:id="addStudents_insertBtn" layoutY="120.0" mnemonicParsing="false" onAction="#addStudentsInsertImage" prefHeight="38.0" prefWidth="117.0" styleClass="insert-btn" stylesheets="@style/dashboardDesign.css" text="Змінити фото" />
                                                     </children>
                                        <styleClass>
                                           <String fx:value="white-bg" />

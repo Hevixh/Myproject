@@ -1,5 +1,6 @@
 package org.example.myproject;
 
+import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -34,6 +35,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class dashboardController implements Initializable {
@@ -467,6 +469,19 @@ public class dashboardController implements Initializable {
         getData.path = "";
     }
 
+    @FXML
+    public void addStudentsInsertImage() {
+        FileChooser open = new FileChooser();
+        open.setTitle("Відкрити зображення");
+        open.getExtensionFilters().add(new FileChooser.ExtensionFilter("Файли зображень", "*.jpg", "*.jpeg", "*.png"));
+        File file = open.showOpenDialog(main_form.getScene().getWindow());
+        if (file != null) {
+            image = new Image(file.toURI().toString(), 117, 158, false, true);
+            addStudents_imageView.setImage(image);
+            getData.path = file.getAbsolutePath();
+        }
+    }
+
     private String[] courseList = {"1", "2", "3", "4"};
 
     @FXML
@@ -520,8 +535,6 @@ public class dashboardController implements Initializable {
         ObservableList ObList = FXCollections.observableArrayList(genderL);
         addStudents_gender.setItems(ObList);
     }
-
-    /* ----------------------------- Student list ----------------------------- */
 
     @FXML
     public ObservableList<studentData> addStudentsListData() {
@@ -588,8 +601,6 @@ public class dashboardController implements Initializable {
 
         getData.path = studentD.getImage();
     }
-
-    /* ----------------------------- Groups ----------------------------- */
 
     @FXML
     public void studentsGroupAdd() {
